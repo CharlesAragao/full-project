@@ -2,6 +2,7 @@ import supabase from '../config/supabase';
 import  bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 
+
 // Cadastro de usuário
 const registerUser = async (request, response) => {
     // Desestruturação do objeto
