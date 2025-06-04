@@ -1,4 +1,4 @@
-import supabase from '../config/supabase';
+import supabase from '../config/supabase.js';
 import  bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 
@@ -23,7 +23,7 @@ const registerUser = async (request, response) => {
     ]);
 
     if (error) {
-        return resposta.status(500).json({ 
+        return response.status(500).json({ 
             error: "Erro: ", error });
     }
 
@@ -35,7 +35,7 @@ const registerUser = async (request, response) => {
 // Login
 const authentication = async (request, response) => {
     // Desestruturação do objeto
-    const { email, sanha } = request.body;
+    const { email, senha } = request.body;
 
     // Abra a conexão com o Supabase
     const { data: user, error } = await supabase
@@ -44,7 +44,7 @@ const authentication = async (request, response) => {
         .eq('email', email)
         .single();
 
-    if (error || !users) {
+    if (error || !user) {
         return response.status(401).json({
             mensagem: "Credenciais inválidas"
         });

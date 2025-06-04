@@ -1,9 +1,10 @@
+import { createClient } from '@supabase/supabase-js';
 
-import { createClient } from '@supabase/supabase-js'
+console.log("SUPABASE_URL:", process.env.SUPABASE_URL);  // só para testar
 
 const supabase = createClient(
-    rocess.env.SUPABASE_URL, 
-    process.env.SUPABASE_KEY
+  process.env.SUPABASE_URL,
+  process.env.SUPABASE_KEY
 );
 
 export default supabase;

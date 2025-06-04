@@ -4,7 +4,7 @@ export default (request, response, next) => {
     const token = request.headers.authorization;
 
     if (!token) {
-        return response.satus(401).json({
+        return response.status(401).json({
             mensagem: "Token não fornecido"
         });
     }
@@ -15,7 +15,7 @@ export default (request, response, next) => {
         next();
     } catch (error) {
         response.satus(401).json({
-            mensagem: 'Token não fornecido'
+            mensagem: 'Token inválido'
         })
     
     }
